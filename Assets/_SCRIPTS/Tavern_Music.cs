@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tavern_Audio : MonoBehaviour
 {
-    public AudioClip WaterSplash;
+    public AudioClip TavernMusic;
     
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,14 @@ public class Tavern_Audio : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            gameObject.GetComponent<AudioSource>().PlayOneShot(WaterSplash);
+            gameObject.GetComponent<AudioSource>().PlayOneShot(TavernMusic);
+        }
+    }
+        private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            gameObject.GetComponent<AudioSource>().Stop();
         }
     }
 }

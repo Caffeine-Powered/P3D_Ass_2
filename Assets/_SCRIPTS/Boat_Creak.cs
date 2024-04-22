@@ -25,4 +25,11 @@ public class Boat_Creak_Audio : MonoBehaviour
             gameObject.GetComponent<AudioSource>().PlayOneShot(BoatCreak);
         }
     }
+        private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            gameObject.GetComponent<AudioSource>().Stop();
+        }
+    }
 }
