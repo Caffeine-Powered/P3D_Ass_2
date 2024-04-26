@@ -9,11 +9,13 @@ public class Cannon_Behaviour : MonoBehaviour
     bool canShoot;
     public Animator animator;
     public AudioClip CannonShot;
+   
     
     // Start is called before the first frame update
     void Start()
     {
         used = false;
+        gameObject.Cannon_text = SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class Cannon_Behaviour : MonoBehaviour
           if(Input.GetKeyDown(KeyCode.E) && canShoot == true)
           {
             animator.SetTrigger("Cannon_Fire");
-
+            
             gameObject.GetComponent<AudioSource>().PlayOneShot(CannonShot);
             used = true;
           }
@@ -35,6 +37,7 @@ public class Cannon_Behaviour : MonoBehaviour
         if(other.tag == "Player")
             {
               canShoot = true;
+              gameObject.Cannon_text = SetActive(true);
             }
     }
         private void OnTriggerExit(Collider other)
@@ -42,6 +45,7 @@ public class Cannon_Behaviour : MonoBehaviour
         if(other.tag == "Player")
             {
                 canShoot = false;
+                gameObject.Cannon_text = SetActive(false);
             }
     }
 }
