@@ -29,6 +29,7 @@ public class Cannon_Behaviour : MonoBehaviour
             
             gameObject.GetComponent<AudioSource>().PlayOneShot(CannonShot);
             used = true;
+            Cannon_text.SetActive(false);
           }
         }
     }
