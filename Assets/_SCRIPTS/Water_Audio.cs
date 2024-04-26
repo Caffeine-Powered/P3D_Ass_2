@@ -27,6 +27,7 @@ public class Water_Audio : MonoBehaviour
         {
             gameObject.GetComponent<AudioSource>().PlayOneShot(WaterSplash);
             gameObject.GetComponent<AudioSource>().PlayOneShot(Underwater);
+            volume.enabled = true;
         }
     }
           private void OnTriggerExit(Collider other)
@@ -34,6 +35,7 @@ public class Water_Audio : MonoBehaviour
         if(other.tag == "Player")
         {
         gameObject.GetComponent<AudioSource>().Stop();
+        volume.enabled = false;
         }
     }  
  
