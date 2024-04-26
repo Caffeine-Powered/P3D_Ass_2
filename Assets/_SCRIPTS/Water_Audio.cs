@@ -6,6 +6,7 @@ using UnityEngine.Rendering.PostProcessing;
 public class Water_Audio : MonoBehaviour
 {
     public AudioClip WaterSplash;
+    public AudioClip Underwater;
     public PostProcessVolume volume; 
     
     // Start is called before the first frame update
@@ -25,14 +26,14 @@ public class Water_Audio : MonoBehaviour
         if(other.tag == "Player")
         {
             gameObject.GetComponent<AudioSource>().PlayOneShot(WaterSplash);
-            volume.enabled = true;
+            gameObject.GetComponent<AudioSource>().PlayOneShot(Underwater);
         }
     }
           private void OnTriggerExit(Collider other)
     {
         if(other.tag == "Player")
         {
-        volume.enabled = false;
+        gameObject.GetComponent<AudioSource>().Stop();
         }
     }  
  
