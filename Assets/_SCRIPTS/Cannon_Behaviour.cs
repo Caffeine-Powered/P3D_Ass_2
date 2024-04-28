@@ -10,6 +10,8 @@ public class Cannon_Behaviour : MonoBehaviour
     public Animator animator;
     public AudioClip CannonShot;
     public GameObject Cannon_text;
+    public ParticleSystem smoke;
+    public ParticleSystem fire;
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,8 @@ public class Cannon_Behaviour : MonoBehaviour
           if(Input.GetKeyDown(KeyCode.E) && canShoot == true)
           {
             animator.SetTrigger("Cannon_Fire");
+            smoke.Play();
+            fire.Play();
             
             gameObject.GetComponent<AudioSource>().PlayOneShot(CannonShot);
             used = true;

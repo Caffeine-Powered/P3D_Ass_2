@@ -8,7 +8,7 @@ public class Water_Audio : MonoBehaviour
     public AudioClip WaterSplash;
     public AudioClip Underwater;
     public PostProcessVolume volume; 
-    
+    public ParticleSystem splash;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +28,7 @@ public class Water_Audio : MonoBehaviour
             gameObject.GetComponent<AudioSource>().PlayOneShot(WaterSplash);
             gameObject.GetComponent<AudioSource>().PlayOneShot(Underwater);
             volume.enabled = true;
+            splash.Play();
         }
     }
           private void OnTriggerExit(Collider other)
@@ -36,6 +37,7 @@ public class Water_Audio : MonoBehaviour
         {
         gameObject.GetComponent<AudioSource>().Stop();
         volume.enabled = false;
+        splash.Stop();
         }
     }  
  

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BarrelShot_Behaviour : MonoBehaviour
 {
     public Animator animator;
+    public ParticleSystem dust;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class BarrelShot_Behaviour : MonoBehaviour
         {
             Debug.Log("BallContact");
             animator.SetTrigger("Ball_Trigger");
+            dust.Play();
         }
     }
 }
