@@ -10,6 +10,7 @@ public class Chest_NewOpen : MonoBehaviour
     bool canOpen;
     public Animator animator;
     public GameObject Chest_text;
+    public AudioClip crash;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class Chest_NewOpen : MonoBehaviour
           {
             animator.SetTrigger("Open");
             Chest_text.SetActive(false);
+            gameObject.GetComponent<AudioSource>().PlayOneShot(crash);
             used = true;
           }
       }
